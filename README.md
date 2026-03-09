@@ -674,98 +674,6 @@ Monitoring endpoints:
 
 ---
 
-# API Endpoints
-
-### Customer APIs
-
-```
-POST /api/v1/customers?name={name}&creditScore={creditScore}&balance={balance}
-
-GET /api/v1/customers/{id}
-
-GET /api/v1/customers/high-credit?score={creditScore}
-
-GET /api/v1/customers/rich?balance={balance}
-```
-
-### Loan APIs
-
-```
-POST /api/v1/loans/apply?customerId={id}&amount={amount}
-```
-
-### Locking APIs
-
-```
-POST /api/v1/locking/optimistic?customerId={id}&amount={amount}
-
-POST /api/v1/locking/pessimistic-transfer?fromAccountId={id}&toAccountId={id}&amount={amount}
-```
-
-### Isolation APIs
-
-```
-POST /api/v1/isolation/default
-
-POST /api/v1/isolation/read-committed
-
-POST /api/v1/isolation/repeatable-read
-
-POST /api/v1/isolation/serializable
-```
-
-### Propagation APIs
-
-```
-POST /api/v1/transactions/required
-
-POST /api/v1/transactions/requires-new
-
-POST /api/v1/transactions/nested
-
-POST /api/v1/transactions/supports
-
-POST /api/v1/transactions/not-supported
-
-POST /api/v1/transactions/mandatory
-
-POST /api/v1/transactions/never
-```
-
-### Concurrency APIs
-
-```
-POST /api/v1/concurrency/deadlock
-
-POST /api/v1/concurrency/concurrent
-
-POST /api/v1/concurrency/stress-test-transfers?threads={count}
-
-POST /api/v1/concurrency/stress-test-loans?threads={count}
-```
-
-### Analytics APIs
-
-```
-GET /api/v1/analytics/loan-summary
-```
-
-
-### Actuator Monitoring APIs
-```
-GET /actuator/health
-
-GET /actuator/metrics
-
-GET /actuator/prometheus
-
-GET /actuator/metrics/jdbc.connections.active
-
-GET /actuator/metrics/hikaricp.connections.active
-```
-
----
-
 # How To Run
 
 Clone the repository:
@@ -797,6 +705,150 @@ Import the Postman collection and test the APIs.
 
 ---
 
+# API Endpoints
+
+### Initial Sample Data (via Scripts)
+
+<img width="1142" height="366" alt="image" src="https://github.com/user-attachments/assets/39758054-6e25-41c1-aec5-ddab343b807b" />
+<br /> <br />
+<img width="654" height="374" alt="image" src="https://github.com/user-attachments/assets/037c8cc1-05a5-46bf-a798-237d21a853ae" />
+<br /> <br />
+<img width="898" height="274" alt="image" src="https://github.com/user-attachments/assets/db544817-f4f3-4024-9da9-419b1e1d1f1d" />
+<br /> <br />
+<img width="1236" height="276" alt="image" src="https://github.com/user-attachments/assets/ebc68509-a7d4-46b6-a751-5dd4708848c7" />
+
+### Customer APIs
+
+```
+POST /api/v1/customers?name={name}&creditScore={creditScore}&balance={balance}
+```
+<img width="1698" height="1000" alt="image" src="https://github.com/user-attachments/assets/a57aba93-24a6-44fe-a322-5970e9c30c2a" />
+<br /> <br />
+<img width="1170" height="418" alt="image" src="https://github.com/user-attachments/assets/993a4d31-5ab5-416b-aeb1-d21d50da8db3" />
+<br /> <br />
+
+```
+GET /api/v1/customers/{id}
+```
+<img width="1714" height="800" alt="image" src="https://github.com/user-attachments/assets/55c447d2-3a03-4571-9549-dfc5bc7df1cb" />
+<br /> <br />
+
+```
+GET /api/v1/customers/high-credit?score={creditScore}
+```
+<img width="1698" height="1186" alt="image" src="https://github.com/user-attachments/assets/36075429-4a11-409c-bce6-44ab7902dbe1" />
+<br /> <br />
+
+```
+GET /api/v1/customers/rich?balance={balance}
+```
+<img width="1694" height="1444" alt="image" src="https://github.com/user-attachments/assets/b09e3a58-dd73-48b3-88cc-c7f033fd75c6" />
+
+### Loan APIs
+
+```
+POST /api/v1/loans/apply?customerId={id}&amount={amount}
+```
+<img width="1704" height="1110" alt="image" src="https://github.com/user-attachments/assets/203621a3-75cb-42ac-a174-32b8d6b429c6" />
+<br /> <br />
+<img width="978" height="320" alt="image" src="https://github.com/user-attachments/assets/caca520a-b8ed-4741-af8c-64992a566ba5" />
+<br /> <br />
+<img width="1254" height="308" alt="image" src="https://github.com/user-attachments/assets/1ed42477-7bad-464c-b894-7ced90e358e3" />
+<br /> <br />
+
+### Locking APIs
+
+```
+POST /api/v1/locking/optimistic?customerId={id}&amount={amount}
+```
+<img width="1704" height="724" alt="image" src="https://github.com/user-attachments/assets/426d0fe0-ae2d-4105-998e-715f93f03ab5" />
+<br /> <br />
+<img width="1170" height="418" alt="image" src="https://github.com/user-attachments/assets/b304cb6d-43f4-4b23-94c2-9382c58cbe71" />
+<br /> <br />
+
+```
+POST /api/v1/locking/pessimistic-transfer?fromAccountId={id}&toAccountId={id}&amount={amount}
+```
+<img width="1702" height="784" alt="image" src="https://github.com/user-attachments/assets/91b1d884-e616-4f2e-9ad2-d294e6f7e968" />
+<br /> <br />
+<img width="666" height="366" alt="image" src="https://github.com/user-attachments/assets/1e272f0c-d236-4210-b516-bce3c0d4a347" />
+<br /> <br />
+
+### Isolation APIs
+<i>Note: These APIs are only to learn the concept of Transaction Isolation (check the code) and do not perform any operation in this example.</i>
+```
+POST /api/v1/isolation/default
+
+POST /api/v1/isolation/read-committed
+
+POST /api/v1/isolation/repeatable-read
+
+POST /api/v1/isolation/serializable
+```
+<img width="1706" height="584" alt="image" src="https://github.com/user-attachments/assets/db432776-2a4a-4f78-bbb2-12b15da574ca" />
+<br /> <br />
+
+### Propagation APIs
+<i>Note: These APIs are only to learn the concept of Transaction Propagation (check the code) and do not perform any operation in example.</i>
+```
+POST /api/v1/transactions/required
+
+POST /api/v1/transactions/requires-new
+
+POST /api/v1/transactions/nested
+
+POST /api/v1/transactions/supports
+
+POST /api/v1/transactions/not-supported
+
+POST /api/v1/transactions/mandatory
+
+POST /api/v1/transactions/never
+```
+<img width="1708" height="594" alt="image" src="https://github.com/user-attachments/assets/a54723d1-0b7b-496f-a466-2b69fd0528ca" />
+<br /> <br />
+<img width="1254" height="358" alt="image" src="https://github.com/user-attachments/assets/a12170df-f310-4648-89a4-b09c07f85dcc" />
+<br /> <br />
+
+### Concurrency APIs
+<i>Note: These APIs are only to learn the concept of Concurrency (check the code) and do not perform any operation in this example.</i>
+```
+POST /api/v1/concurrency/deadlock
+
+POST /api/v1/concurrency/concurrent
+
+POST /api/v1/concurrency/stress-test-transfers?threads={count}
+
+POST /api/v1/concurrency/stress-test-loans?threads={count}
+```
+<img width="1712" height="594" alt="image" src="https://github.com/user-attachments/assets/c8e05e2e-eb25-458e-9a65-6734350d1bd7" />
+<br /> <br />
+
+### Analytics APIs
+
+```
+GET /api/v1/analytics/loan-summary
+```
+<img width="1702" height="780" alt="image" src="https://github.com/user-attachments/assets/2db11672-17b3-45b4-851d-183b97175b51" />
+<br /> <br />
+
+### Actuator Monitoring APIs
+```
+GET /actuator/health
+
+GET /actuator/metrics
+
+GET /actuator/prometheus
+
+GET /actuator/metrics/jdbc.connections.active
+
+GET /actuator/metrics/hikaricp.connections.active
+```
+<img width="1700" height="798" alt="image" src="https://github.com/user-attachments/assets/a2b0ce76-54df-40a1-b4e9-e0ae14a8513f" />
+<br /> <br />
+
+---
+
 # Summary
 
 This microservice demonstrates **enterprise database transaction management** including:
@@ -814,6 +866,6 @@ This microservice demonstrates **enterprise database transaction management** in
 - connection pool monitoring
 
 ---
-## License
+# License
 
 Free software, by [Siraj Chaudhary](https://www.linkedin.com/in/sirajchaudhary/)
