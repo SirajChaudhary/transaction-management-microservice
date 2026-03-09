@@ -1,0 +1,246 @@
+{
+  "info": {
+    "name": "transaction-management-microservice",
+    "_postman_id": "9f7a6b7a-transaction-management-microservice",
+    "description": "Postman collection for transaction-management-microservice including transaction propagation, isolation, locking, concurrency, analytics, and actuator monitoring endpoints.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Customer APIs",
+      "item": [
+        {
+          "name": "Create Customer",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8080/api/v1/customers?name=Siraj&creditScore=750&balance=10000"
+          }
+        },
+        {
+          "name": "Get Customer",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8080/api/v1/customers/1"
+          }
+        },
+        {
+          "name": "High Credit Customers",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8080/api/v1/customers/high-credit?score=700"
+          }
+        },
+        {
+          "name": "Rich Customers",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8080/api/v1/customers/rich?balance=10000"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Loan APIs",
+      "item": [
+        {
+          "name": "Apply Loan",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8080/api/v1/loans/apply?customerId=1&amount=5000"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Transaction Propagation",
+      "item": [
+        {
+          "name": "REQUIRED",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8080/api/v1/transactions/required"
+          }
+        },
+        {
+          "name": "REQUIRES_NEW",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8080/api/v1/transactions/requires-new"
+          }
+        },
+        {
+          "name": "NESTED",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8080/api/v1/transactions/nested"
+          }
+        },
+        {
+          "name": "SUPPORTS",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8080/api/v1/transactions/supports"
+          }
+        },
+        {
+          "name": "NOT_SUPPORTED",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8080/api/v1/transactions/not-supported"
+          }
+        },
+        {
+          "name": "MANDATORY",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8080/api/v1/transactions/mandatory"
+          }
+        },
+        {
+          "name": "NEVER",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8080/api/v1/transactions/never"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Isolation Levels",
+      "item": [
+        {
+          "name": "DEFAULT",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8080/api/v1/isolation/default"
+          }
+        },
+        {
+          "name": "READ_COMMITTED",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8080/api/v1/isolation/read-committed"
+          }
+        },
+        {
+          "name": "REPEATABLE_READ",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8080/api/v1/isolation/repeatable-read"
+          }
+        },
+        {
+          "name": "SERIALIZABLE",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8080/api/v1/isolation/serializable"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Locking",
+      "item": [
+        {
+          "name": "Optimistic Locking",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8080/api/v1/locking/optimistic?customerId=1&amount=100"
+          }
+        },
+        {
+          "name": "Pessimistic Transfer",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8080/api/v1/locking/pessimistic-transfer?fromAccountId=1&toAccountId=2&amount=10"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Concurrency",
+      "item": [
+        {
+          "name": "Deadlock Simulation",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8080/api/v1/concurrency/deadlock"
+          }
+        },
+        {
+          "name": "Concurrent Transactions",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8080/api/v1/concurrency/concurrent"
+          }
+        },
+        {
+          "name": "Transfer Stress Test",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8080/api/v1/concurrency/stress-test-transfers?threads=50"
+          }
+        },
+        {
+          "name": "Loan Stress Test",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8080/api/v1/concurrency/stress-test-loans?threads=20"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Analytics",
+      "item": [
+        {
+          "name": "Loan Summary",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8080/api/v1/analytics/loan-summary"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Actuator Monitoring",
+      "item": [
+        {
+          "name": "Health",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8080/actuator/health"
+          }
+        },
+        {
+          "name": "Metrics",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8080/actuator/metrics"
+          }
+        },
+        {
+          "name": "Prometheus",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8080/actuator/prometheus"
+          }
+        },
+        {
+          "name": "JDBC Connections",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8080/actuator/metrics/jdbc.connections.active"
+          }
+        },
+        {
+          "name": "HikariCP Connections",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8080/actuator/metrics/hikaricp.connections.active"
+          }
+        }
+      ]
+    }
+  ]
+}
